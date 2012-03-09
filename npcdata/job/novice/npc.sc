@@ -155,7 +155,7 @@ OnClick:
 		dialog "배에서 내릴려면 저쪽의 ^4d4dff빛이 나는 포탈^000000로 들어가면 된다네."
 		dialog "모든 장소이동은 포탈을 통하고 있지."
 		setquest 7471
-		erasequest 7471
+		completequest 7471
 		close
 	else
 		showimage "fly_trock.bmp" 2
@@ -410,7 +410,7 @@ OnClick:
 			dialog "유용하게 사용하시길 바랍니다."
 			dialog "재지급되진 않으므로 주의하세요."
 			setquest 4269
-			erasequest 4269
+			completequest 4269
 			getitem Novice_Plate 1
 			getitem Novice_Hood 1
 			getitem Novice_Boots 1

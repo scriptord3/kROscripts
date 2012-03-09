@@ -1,0 +1,38 @@
+//나이트메어
+quest {
+	quest_info (2289, "Verit Hunting (Nightmare)")
+	hunt("N_VERIT", 20)
+}
+
+quest {
+	quest_info(2290, "Verit Hunting - Cooldown")
+	time(82800)
+}
+
+quest {
+	quest_info (2291, "Mummy Hunting (Nightmare)")
+	hunt("N_MUMMY", 20)
+}
+
+quest {
+	quest_info(2292, "Mummy Hunting - Cooldown")
+	time(82800)
+}
+
+
+// novice 2012
+quest {
+	quest_info(7471, "Novice")
+}
+
+quest {
+	quest_info(7472, "Novice")
+}
+
+quest {
+	quest_info(7473, "Novice")
+}
+
+quest {
+	quest_info(4269, "Novice")
+}
