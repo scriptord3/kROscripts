@@ -1,4 +1,4 @@
-npc "iz_int04" "루민#new01_ship" 4_M_NOV_RUMIN 91 62 3 0 0
+npc "iz_int01" "루민#new01_ship" 4_M_NOV_RUMIN 91 62 3 0 0
 OnClick:
 	var q = isbegin_quest 7471
 	if (q == 0)
@@ -118,7 +118,7 @@ OnClick:
 	endif
 return
 
-npc "iz_int04" "선장 카록#new01_ship" 4_M_REINDEER 99 75 3 0 0
+npc "iz_int01" "선장 카록#new01_ship" 4_M_REINDEER 99 75 3 0 0
 OnClick:
 	var q = isbegin_quest 7471
 	if (q == 0)

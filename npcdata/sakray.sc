@@ -1,5 +1,3 @@
-
-
 npc "geffen" "차원 술사 안내인#sa" 4_F_JOB_HUNTER 140 196 5 0 0
 OnClick:
 	dialog "[사차]"

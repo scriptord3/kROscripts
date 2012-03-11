@@ -29,22 +29,23 @@ OnClick:
 		dialog "저기...50장 전부 드릴까요?"
 		dialog "얼마나... 필요하세요?"
 		wait
-		dlgwrite
-		if v[MONEY] < xxx
+		dlgwrite 0 50
+		var total_vs = input * 200
+		if (v[VAR_MONEY] < total_vs)
 			dialog "[카탈로그 마도사]"
 			dialog "구입하시려는 카탈로그는 총 10매로"
-			dialog "2000 z를 주셔야 하는데,"
+			dialog total_vs + " z를 주셔야 하는데,"
 			dialog "돈이 아무래도 부족하네요."
 			dialog "장비를 매각하시면"
 			dialog "돈이 충분해질 텐데..."
 			close
-		end
+		endif
 		dialog "[카탈로그 마도사]"
 		dialog "구입하시려는 카탈로그는 총 1매로"
-		dialog "200 z를 주시면 됩니다."
+		dialog total_vs + " z를 주시면 됩니다."
 		dialog "여기 있습니다."
-		dropgold 200
-		getitem Vending_Search_Scroll 1
+		dropgold total_vs
+		getitem Vending_Search_Scroll input
 		close
 	break
 	case 2
