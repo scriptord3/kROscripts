@@ -373,19 +373,6 @@ OnClick:
 	showimage "nov_lumin01.bmp" 255
 return
 
-npc "iz_ac01" "카프라 안내 교관#1" 4_F_KAFRA1 95 46 6 0 0
-OnClick:
-	showimage "kafra_01.bmp" 2
-	dialog "[카프라 안내 교관]"
-	dialog "먼저 ^8B4513아카데미 등록 절차^000000를"
-	dialog "거치고 와야 할 것 같아요~!"
-	dialog "아카데미 1층 입구에 가면"
-	dialog "등록 해 주는 분이"
-	dialog "계실거에요~!"
-	close
-	showimage "kafra_01.bmp" 255
-return
-
 npc "iz_ac01" "아카데미 접수원#nk" 4_F_01 100 39 5 0 0
 OnClick:
 	var q = isbegin_quest 4269
@@ -616,4 +603,578 @@ OnClick:
 		endwhile
 		close
 	endif
+return
+
+
+npc "iz_ac01" "카프라 안내 교관#1" 4_F_KAFRA1 95 46 6 0 0
+OnClick:
+	showimage "kafra_01.bmp" 2
+	var q = isbegin_quest 4269
+	if (q == 0)
+		dialog "[카프라 안내 교관]"
+		dialog "먼저 ^8B4513아카데미 등록 절차^000000를"
+		dialog "거치고 와야 할 것 같아요~!"
+		dialog "아카데미 1층 입구에 가면"
+		dialog "등록 해 주는 분이"
+		dialog "계실거에요~!"
+		close
+	else
+		dialog "[카프라 안내 교관]"
+		dialog "어서오십시오. 카프라 서비스는 언제나 여러분 곁에 있습니다."
+		wait
+		dialog "[카프라 안내 교관]"
+		dialog "카프라 서비스를 처음"
+		dialog "이용하는 분들을 위해서"
+		dialog "카프라 서비스에 대한"
+		dialog "다양한 설명을 해드리고"
+		dialog "있지요~!"
+		wait
+		while(1)
+			dialog "[카프라 안내 교관]"
+			dialog "카프라 서비스에 관해서"
+			dialog "뭐가 알고싶으세요~!"
+			wait
+			choose menu "저장 서비스 이용" "창고 서비스 이용" "공간 이동 서비스 이용" "카트 서비스 이용" "기타정보 확인" "종료"
+			case 1
+				dialog "[카프라 안내 교관]"
+				dialog "저장 서비스란 말 그대로"
+				dialog "필드에서 ^8B4513전투불능^000000이 되거나"
+				dialog "^8B4513나비의 날개^000000와 같은 아이템을"
+				dialog "사용했을 때 이동되는 지역을"
+				dialog "정하는 것 이에요~"
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "이해하기 아주 쉽죠~?"
+				dialog "저장 서비스를"
+				dialog "이용해 보시겠어요~?"
+				wait
+				choose menu "아니오" "예" 
+				case 1
+					dialog "[카프라 안내 교관]"
+					dialog "무서워 하지 말아요~!"
+					dialog "저장서비스는 여러분을"
+					dialog "잡아먹지 않아요~"
+					dialog "생각이 바뀌면 저장 서비스를"
+					dialog "꼭~ 이용해봤으면 좋겠어요~!"
+					wait
+				break
+				case 2
+					dialog "[카프라 안내 교관]"
+					dialog "자~ 그럼"
+					dialog "현재 크리투라 아카데미가 있는"
+					dialog "마을인 ^8B4513이즈루드 광장^000000으로"
+					dialog "저장을 합니다~!."
+					wait
+					dialog "[카프라 안내 교관]"
+					dialog "짠~!"
+					wait
+					dialog "[카프라 안내 교관]"
+					dialog "벌써 끝났어요~ 참 쉽죠~?"
+					wait
+					dialog "[카프라 안내 교관]"
+					dialog "이제 ^006400나비의 날개^000000를"
+					dialog "사용 해 보면 마지막으로"
+					dialog "저장한 위치로 이동 될 거에요."
+					wait
+				break
+				endchoose
+			break
+			case 2
+				dialog "[카프라 안내 교관]"
+				dialog "창고 서비스란~"
+				dialog "말 그대로 각종 아이템들을"
+				dialog "^8B4513안전하게 보관^000000 할 수 있도록 하는"
+				dialog "중요한 금고와 같은 서비스에요~!"
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "창고를 이용하기 위해서는"
+				dialog "^8B4513초보자 스킬레벨을 6^000000이상으로"
+				dialog "올려야 하지요~!"
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "그리고 소정의 수고비로~"
+				dialog "^006400500 제니^000000를 받아요!"
+				dialog "창고를 이용해 보시겠어요~?"
+				wait
+				choose menu "아니오" "예" 
+				case 1
+					dialog "[카프라 안내 교관]"
+					dialog "창고 서비스는"
+					dialog "필수 서비스니까~"
+					dialog "꼭~ 이용해 보세요~!"
+					wait
+				break
+				case 2
+					dialog "[카프라 안내 교관]"
+					dialog "창고를 이용하시려면"
+					dialog "초보자 스킬레벨을 6 이상"
+					dialog "올리셔야 해요."
+					wait
+				break
+				endchoose
+			break
+			case 3
+				dialog "[카프라 안내 교관]"
+				dialog "공간 이동 서비스란~"
+				dialog "말 그대로 고객님들께서"
+				dialog "^8B4513원하는 장소^000000에 약간의"
+				dialog "제니만 받고 편하게"
+				dialog "이동시켜드리는 서비스랍니다~."
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "보통~ 마을과 마을사이를 이어주는"
+				dialog "^8B4513다리의 역할^000000을 하고요~"
+				dialog "간혹~ 던전이나~ 필드로"
+				dialog "이동시켜주는 곳도 있으니"
+				dialog "정말 편리한 서비스지요~!"
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "어떤가요~? 현재는 교육을"
+				dialog "위해서 시범 서비스를"
+				dialog "^8B4513무료^000000로~! 운영하고 있으니~"
+				dialog "서비스를 이용해 보겠어요~?"
+				wait
+				choose menu "아니오" "예" 
+				case 1
+					dialog "[카프라 안내 교관]"
+					dialog "정말 필요한 서비스라~"
+					dialog "꼭~ 이용해 보는 편이"
+					dialog "좋을텐데요~~."
+					wait
+				break
+				case 2
+					choose menu "아카데미 1층 대 강의실 입구" "아카데미 2층 총장실 입구" "다음에 이용한다" 
+					case 1
+						close
+						moveto "iz_ac01" 98 85
+					break
+					case 2
+						close
+						moveto "iz_ac02" 104 179
+					break
+					case 3
+						
+					break
+					endchoose
+				break
+				endchoose
+			break
+			case 4
+				dialog "[카프라 안내 교관]"
+				dialog "카트 서비스란~"
+				dialog "카트를 사용할 수 있는"
+				dialog "^8B4513상인 계열의 직업^000000들에게"
+				dialog "약간의 제니를 받고"
+				dialog "카트를 대여해 드리는"
+				dialog "서비스랍니다~."
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "상인 계열이 아니거나~"
+				dialog "카트 장착 스킬을 습득하지"
+				dialog "못했을 경우에는 이용할 수"
+				dialog "없는 서비스라는걸~"
+				dialog "알아두세요~!."
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "일단 ^0000FF아카데미 교육생^000000들은~"
+				dialog "이용하고 싶어도~"
+				dialog "이용 할 수 없는 서비스니까~"
+				dialog "일단 알아만 두세요~!!."
+				wait
+			break
+			case 5
+				dialog "[카프라 안내 교관]"
+				dialog "기타 서비스 중 에는"
+				dialog "적립 포인트라는 것이"
+				dialog "있어요~!"
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "적립 포인트 확인이란~"
+				dialog "각종~ 카프라 서비스를"
+				dialog "이용할 때 마다"
+				dialog "고객님들에게~ 감사의 의미로"
+				dialog "조금씩 ^8B4513포인트를 쌓아^000000드리는"
+				dialog "것을 말해요~."
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "적립 포인트를 한 번"
+				dialog "확인 해 보시겠어요~?"
+				wait
+				choose menu "적립포인트 확인" "취소" 
+				case 1
+					dialog "[카프라 안내 교관]"
+					dialog ""+PcName+" 고객님의 적립포인트는 0 점 이에요."
+					wait
+					dialog "[카프라 안내 교관]"
+					dialog "적립포인트는 저희 카프라 본사에서 상품과 교환이 가능해요."
+					dialog "편리한 저희 카프라 서비스도 이용하시고 많은 상품도 받아가세요~"
+					wait
+				break
+				case 2
+					wait
+				break
+				endchoose
+			break
+			case 6
+				dialog "[카프라 안내 교관]"
+				dialog "저희 카프라 서비스는 보다 완벽한 서비스와 엄격한 관리 업무로 고객 여러분이 안심하고 편하게 이용하실 수 있도록 최선을 다하고 있습니다."
+				dialog "이용해 주셔서 감사합니다."
+				close
+				exitwhile
+			break
+			endchoose
+		endwhile
+	endif
+	showimage "kafra_01.bmp" 255
+return
+
+npc "iz_ac02" "카프라 안내 교관#2" 4_F_KAFRA1 101 176 6 0 0
+OnClick:
+	showimage "kafra_01.bmp" 2
+	var q = isbegin_quest 4269
+	if (q == 0)
+		dialog "[카프라 안내 교관]"
+		dialog "먼저 ^8B4513아카데미 등록 절차^000000를"
+		dialog "거치고 와야 할 것 같아요~!"
+		dialog "아카데미 1층 입구에 가면"
+		dialog "등록 해 주는 분이"
+		dialog "계실거에요~!"
+		close
+	else
+		dialog "[카프라 안내 교관]"
+		dialog "어서오십시오. 카프라 서비스는 언제나 여러분 곁에 있습니다."
+		wait
+		dialog "[카프라 안내 교관]"
+		dialog "카프라 서비스를 처음"
+		dialog "이용하는 분들을 위해서"
+		dialog "카프라 서비스에 대한"
+		dialog "다양한 설명을 해드리고"
+		dialog "있지요~!"
+		wait
+		while(1)
+			dialog "[카프라 안내 교관]"
+			dialog "카프라 서비스에 관해서"
+			dialog "뭐가 알고싶으세요~!"
+			wait
+			choose menu "저장 서비스 이용" "창고 서비스 이용" "공간 이동 서비스 이용" "카트 서비스 이용" "기타정보 확인" "종료"
+			case 1
+				dialog "[카프라 안내 교관]"
+				dialog "저장 서비스란 말 그대로"
+				dialog "필드에서 ^8B4513전투불능^000000이 되거나"
+				dialog "^8B4513나비의 날개^000000와 같은 아이템을"
+				dialog "사용했을 때 이동되는 지역을"
+				dialog "정하는 것 이에요~"
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "이해하기 아주 쉽죠~?"
+				dialog "저장 서비스를"
+				dialog "이용해 보시겠어요~?"
+				wait
+				choose menu "아니오" "예" 
+				case 1
+					dialog "[카프라 안내 교관]"
+					dialog "무서워 하지 말아요~!"
+					dialog "저장서비스는 여러분을"
+					dialog "잡아먹지 않아요~"
+					dialog "생각이 바뀌면 저장 서비스를"
+					dialog "꼭~ 이용해봤으면 좋겠어요~!"
+					wait
+				break
+				case 2
+					dialog "[카프라 안내 교관]"
+					dialog "자~ 그럼"
+					dialog "현재 크리투라 아카데미가 있는"
+					dialog "마을인 ^8B4513이즈루드 광장^000000으로"
+					dialog "저장을 합니다~!."
+					wait
+					dialog "[카프라 안내 교관]"
+					dialog "짠~!"
+					wait
+					dialog "[카프라 안내 교관]"
+					dialog "벌써 끝났어요~ 참 쉽죠~?"
+					wait
+					dialog "[카프라 안내 교관]"
+					dialog "이제 ^006400나비의 날개^000000를"
+					dialog "사용 해 보면 마지막으로"
+					dialog "저장한 위치로 이동 될 거에요."
+					wait
+				break
+				endchoose
+			break
+			case 2
+				dialog "[카프라 안내 교관]"
+				dialog "창고 서비스란~"
+				dialog "말 그대로 각종 아이템들을"
+				dialog "^8B4513안전하게 보관^000000 할 수 있도록 하는"
+				dialog "중요한 금고와 같은 서비스에요~!"
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "창고를 이용하기 위해서는"
+				dialog "^8B4513초보자 스킬레벨을 6^000000이상으로"
+				dialog "올려야 하지요~!"
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "그리고 소정의 수고비로~"
+				dialog "^006400500 제니^000000를 받아요!"
+				dialog "창고를 이용해 보시겠어요~?"
+				wait
+				choose menu "아니오" "예" 
+				case 1
+					dialog "[카프라 안내 교관]"
+					dialog "창고 서비스는"
+					dialog "필수 서비스니까~"
+					dialog "꼭~ 이용해 보세요~!"
+					wait
+				break
+				case 2
+					dialog "[카프라 안내 교관]"
+					dialog "창고를 이용하시려면"
+					dialog "초보자 스킬레벨을 6 이상"
+					dialog "올리셔야 해요."
+					wait
+				break
+				endchoose
+			break
+			case 3
+				dialog "[카프라 안내 교관]"
+				dialog "공간 이동 서비스란~"
+				dialog "말 그대로 고객님들께서"
+				dialog "^8B4513원하는 장소^000000에 약간의"
+				dialog "제니만 받고 편하게"
+				dialog "이동시켜드리는 서비스랍니다~."
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "보통~ 마을과 마을사이를 이어주는"
+				dialog "^8B4513다리의 역할^000000을 하고요~"
+				dialog "간혹~ 던전이나~ 필드로"
+				dialog "이동시켜주는 곳도 있으니"
+				dialog "정말 편리한 서비스지요~!"
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "어떤가요~? 현재는 교육을"
+				dialog "위해서 시범 서비스를"
+				dialog "^8B4513무료^000000로~! 운영하고 있으니~"
+				dialog "서비스를 이용해 보겠어요~?"
+				wait
+				choose menu "아니오" "예" 
+				case 1
+					dialog "[카프라 안내 교관]"
+					dialog "정말 필요한 서비스라~"
+					dialog "꼭~ 이용해 보는 편이"
+					dialog "좋을텐데요~~."
+					wait
+				break
+				case 2
+					choose menu "아카데미 1층 대 강의실 입구" "아카데미 2층 총장실 입구" "다음에 이용한다" 
+					case 1
+						close
+						moveto "iz_ac01" 98 85
+					break
+					case 2
+						close
+						moveto "iz_ac02" 104 179
+					break
+					case 3
+						
+					break
+					endchoose
+				break
+				endchoose
+			break
+			case 4
+				dialog "[카프라 안내 교관]"
+				dialog "카트 서비스란~"
+				dialog "카트를 사용할 수 있는"
+				dialog "^8B4513상인 계열의 직업^000000들에게"
+				dialog "약간의 제니를 받고"
+				dialog "카트를 대여해 드리는"
+				dialog "서비스랍니다~."
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "상인 계열이 아니거나~"
+				dialog "카트 장착 스킬을 습득하지"
+				dialog "못했을 경우에는 이용할 수"
+				dialog "없는 서비스라는걸~"
+				dialog "알아두세요~!."
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "일단 ^0000FF아카데미 교육생^000000들은~"
+				dialog "이용하고 싶어도~"
+				dialog "이용 할 수 없는 서비스니까~"
+				dialog "일단 알아만 두세요~!!."
+				wait
+			break
+			case 5
+				dialog "[카프라 안내 교관]"
+				dialog "기타 서비스 중 에는"
+				dialog "적립 포인트라는 것이"
+				dialog "있어요~!"
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "적립 포인트 확인이란~"
+				dialog "각종~ 카프라 서비스를"
+				dialog "이용할 때 마다"
+				dialog "고객님들에게~ 감사의 의미로"
+				dialog "조금씩 ^8B4513포인트를 쌓아^000000드리는"
+				dialog "것을 말해요~."
+				wait
+				dialog "[카프라 안내 교관]"
+				dialog "적립 포인트를 한 번"
+				dialog "확인 해 보시겠어요~?"
+				wait
+				choose menu "적립포인트 확인" "취소" 
+				case 1
+					dialog "[카프라 안내 교관]"
+					dialog ""+PcName+" 고객님의 적립포인트는 0 점 이에요."
+					wait
+					dialog "[카프라 안내 교관]"
+					dialog "적립포인트는 저희 카프라 본사에서 상품과 교환이 가능해요."
+					dialog "편리한 저희 카프라 서비스도 이용하시고 많은 상품도 받아가세요~"
+					wait
+				break
+				case 2
+					wait
+				break
+				endchoose
+			break
+			case 6
+				dialog "[카프라 안내 교관]"
+				dialog "저희 카프라 서비스는 보다 완벽한 서비스와 엄격한 관리 업무로 고객 여러분이 안심하고 편하게 이용하실 수 있도록 최선을 다하고 있습니다."
+				dialog "이용해 주셔서 감사합니다."
+				close
+				exitwhile
+			break
+			endchoose
+		endwhile
+	endif
+	showimage "kafra_01.bmp" 255
+return
+
+npc "iz_ac01" "전투 교관 스비노#크리투" 4_M_NOV_HUNT 59 83 4 0 0
+OnClick:
+	dialog "[전투 교관 스비노]"
+	dialog "어서 오게. 친구."
+	dialog "나는 사냥담당 교관 스비노네."
+	dialog "자네들이 하루빨리 훌륭한 용사가 될 수 있도록 돕기 위해 간단한 의뢰를 제공하고 있으니 관심 있다면 둘러보게."
+	wait
+	choose menu "의뢰를 본다." "그만 둔다." 
+	case 1
+		choose menu "세상에서 젤로 맛있는(1~3)" "당근은 맛있어(1~3)" "파브르 옷감기(4~6)" "그만 둔다." 
+		case 1
+			setquest 11338
+			erasequest 11338
+			dialog "[전투 교관 스비노]"
+			dialog "포링은 어디에서나 볼 수 있는 귀여운 식물이지."
+			dialog "물론 맛도 좋아서 야채를 싫어하는 아이들도 잘 먹고 말이야."
+			wait
+			dialog "[전투 교관 스비노]"
+			dialog "크리투라 학원에서도 중요한 식재료로 사용되고 있으니 언제나 포링이 필요하다네."
+			wait
+			choose menu "퀘스트를 받는다." "그만 둔다." 
+			case 1
+				dialog "[전투 교관 스비노]"
+				dialog "포링은 크리투라 학원이 있는 이즈루드 마을의 서쪽 필드에서 쉽게 발견 할 수 있지."
+				dialog "포링을 10마리 잡아서 젤로피 5개를 가져오게."
+				dialog "받은 퀘스트는 Alt+U를 누르면 확인할 수 있다네."
+				setquest 11339
+				close				
+			break
+			case 2
+				dialog "[전투 교관 스비노]"
+				dialog "포링은 어디에서나 볼 수 있는 귀여운 식물이지."
+				dialog "물론 맛도 좋아서 야채를 싫어하는 아이들도 잘 먹고 말이야."
+				wait
+				dialog "[전투 교관 스비노]"
+				dialog "크리투라 학원에서도 중요한 식재료로 사용되고 있으니 언제나 포링이 필요하다네."
+				wait
+				choose menu "대화를 마친다." "퀘스트를 포기한다." 
+				case 1
+					close
+				break
+				case 2
+					dialog "[전투 교관 스비노]"
+					dialog "정말 퀘스트를 포기하겠나?"
+					wait
+					choose menu "대화를 마친다." "정말 포기한다." 
+					case 1
+						close
+					break
+					case 2
+						dialog "[전투 교관 스비노]"
+						dialog "내 도움이 필요한 이상 얼마든지 퀘스트에 다시 도전할 수 있으니 언제든 오게."
+						erasequest 11339
+						close
+					break
+					endchoose
+				break
+				endchoose
+			break
+			endchoose
+		break
+		case 2
+			dialog "[전투 교관 스비노]"
+			dialog "루나틱은 프론테라 근교에 서식하는 아주 귀여운 동물이라네."
+			dialog "보들보들하고 폭신폭신하고…… 정말 귀엽지…… 귀여워……"
+			wait
+			dialog "[전투 교관 스비노]"
+			dialog "게다가 항상 당근을 가지고 다니기 때문에 맛있는 당근을 쉽게 얻을 수 있네."
+			dialog "당근은 식이섬유소가 풍부하고 비타민A와 카로틴을 함유하고 있어서 시력개선에도 효과가 있는 아주 좋은 채소야."
+			wait
+			var q = isbegin_quest 11340
+			if (q == 0)
+				choose menu "퀘스트를 받는다." "그만 둔다." 
+				case 1
+					dialog "[전투 교관 스비노]"
+					dialog "루나틱은 크리투라 학원이 있는 이즈루드 마을의 서쪽필드에서 쉽게 발견 할 수 있지."
+					dialog "루나틱을 10마리 잡아서 당근 3개를 가져오게. "
+					dialog "받은 퀘스트는 Alt+U를 누르면 확인할 수 있다네."
+					setquest 11340
+					close
+				break
+				case 2
+					
+				break
+				endchoose
+			else
+				choose menu "대화를 마친다." "퀘스트를 포기한다." 
+				case 1
+					
+				break
+				case 2
+					dialog "[전투 교관 스비노]"
+					dialog "정말 퀘스트를 포기하겠나?"
+					wait
+					choose menu "대화를 마친다." "정말 포기한다." 
+					case 1
+						close
+					break
+					case 2
+						dialog "[전투 교관 스비노]"
+						dialog "내 도움이 필요한 이상 얼마든지 퀘스트에 다시 도전할 수 있으니 언제든 오게."
+						erasequest 11340
+						close
+					break
+					endchoose
+				break
+				endchoose
+			endif
+		break
+		case 3
+			
+		break
+		case 4
+			dialog "[전투 교관 스비노]"
+			dialog "지금은 별로 생각이 없나 보군."
+			dialog "생각이 바뀌면 언제든 오게."
+			close
+		break
+		endchoose
+	break
+	case 2
+		dialog "[전투 교관 스비노]"
+		dialog "지금은 별로 생각이 없나 보군."
+		dialog "생각이 바뀌면 언제든 오게."
+		close
+	break
+	endchoose
 return
